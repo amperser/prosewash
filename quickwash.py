@@ -41,8 +41,10 @@ def main(text=None):
 
     valid_errors = [error for error in errors
                     if error_is_valid(text, error)]
+    json_output = error_str_to_json(text)
+    json_output['data']['errors'] = valid_errors
 
-    print(valid_errors)
+    print(json_output)
 
 
 if __name__ == "__main__":

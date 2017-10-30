@@ -3,9 +3,10 @@ import proselint
 import sys
 
 
-def main():
-    with open(sys.argv[1], "r") as f:
-        text = f.read()
+def main(text=None):
+    if text is None:
+        with open(sys.argv[1], "r") as f:
+            text = f.read()
     json_dict = json.loads(
         proselint.tools.errors_to_json(
             proselint.tools.lint(text)

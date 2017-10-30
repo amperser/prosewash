@@ -1,1 +1,1 @@
-The children were unable to get the ball rolling down the hill because it was rolling too quickly.
+During a strenuous game of soccer, Sally kicked the ball so hard that it flew over the fence and began rolling down the hill. The children were unable to get the ball rolling down the hill because it was rolling very quickly. Luckily, the hill had finite length.

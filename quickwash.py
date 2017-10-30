@@ -19,13 +19,18 @@ def error_str_to_json(err_string):
 def sentence_context(text, position):
     """The sentence in the text that includes the given position."""
     doc = nlp(text)
-    print(text)
-    print(type(position))
     counter = 0
     for sentence in doc.sents:
-        counter += len(sentence)
+        counter += len(sentence.text)
         if counter >= position:
-            return sentence
+            return sentence.text
+
+
+def error_is_valid(text, error):
+    """Call out to Judicious and figure out if error is valid."""
+    error_message = error['message']
+    error_context = sentence_context(text, error['start'])
+    return True
 
 
 def main(text=None):
@@ -33,8 +38,11 @@ def main(text=None):
         with open(sys.argv[1], "r") as f:
             text = f.read()
     errors = error_str_to_json(text)['data']['errors']
-    for error in errors:
-        print(sentence_context(text, error['start']))
+
+    valid_errors = [error for error in errors
+                    if error_is_valid(text, error)]
+
+    print(valid_errors)
 
 
 if __name__ == "__main__":

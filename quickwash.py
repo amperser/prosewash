@@ -3,9 +3,13 @@ import sys
 
 import spacy
 
+import judicious
 import proselint
 
 nlp = spacy.load('en')
+
+
+judicious.register("http://127.0.0.1:5000")
 
 
 def error_str_to_json(err_string):
@@ -28,9 +32,10 @@ def sentence_context(text, position):
 
 def error_is_valid(text, error):
     """Call out to Judicious and figure out if error is valid."""
-    error_message = error['message']
-    error_context = sentence_context(text, error['start'])
-    return True
+    return judicious.prosewash(
+        text=sentence_context(text, error['start']),
+        error_message=error['message'],
+    )
 
 
 def main(text=None):

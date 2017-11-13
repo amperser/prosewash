@@ -1,8 +1,11 @@
+Homework, 2017_W46_1_1300: trio tutorial @suchow & @mpacer
+https://trio.readthedocs.io/en/latest/tutorial.html
+
 # Next steps:
 
 0. Take what we have in this demo
     1. make webapp version of prosewash
-    2. API endpoint with some text
+    2. API endpoint with some text ✓
     3. return prosewashed version of text
 1. Learn about and decide on python async (@suchow & @mpacer)
     - async await: [https://www.youtube.com/watch?v=MCs5OvhV9S4](Beazley talk from pycon)

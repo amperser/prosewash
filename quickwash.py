@@ -7,10 +7,7 @@ import judicious
 import proselint
 
 nlp = spacy.load('en')
-
-
 judicious.register("http://127.0.0.1:5000")
-
 
 def error_str_to_json(err_string):
     return json.loads(

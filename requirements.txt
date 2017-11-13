@@ -1,3 +1,5 @@
 proselint==0.8.0
 spacy==1.9.0
 flask==0.12.2
+Flask-SQLAlchemy==2.3.2
+gunicorn==19.7.1

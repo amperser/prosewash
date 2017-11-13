@@ -12,6 +12,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 
 db = SQLAlchemy(app)
 
+def gen_uuid_str():
+    return str(uuid.uuid4())
 
 class Stain(db.Model):
     __tablename__ = "stain"
@@ -19,7 +21,7 @@ class Stain(db.Model):
         UUID,
         primary_key=True,
         nullable=False,
-        default=str(uuid.uuid4())
+        default=gen_uuid_str
         )
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now)
     message = db.Column(db.Text)
@@ -33,7 +35,7 @@ class Document(db.Model):
         UUID,
         primary_key=True,
         nullable=False,
-        default=str(uuid.uuid4())
+        default=gen_uuid_str
         )
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now)
     text = db.Column(db.Text)
